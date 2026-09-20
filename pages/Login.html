@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Fraud Detection Project</title>
+  <link rel="stylesheet" href="{{ url_for('serve_styles', filename='login.css') }}" />
+
+  <!-- SweetAlert2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="image-section">
+      <img class="login" src="{{ url_for('serve_images', filename='log-in.png')}}" alt="Login Illustration" />
+    </div>
+    <div class="login-form">
+      <h2>Login</h2>
+
+      <form method="POST" action="{{ url_for('login') }}">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="example@gmail.com" required />
+      
+        <label>Password</label>
+        <input type="password" name="password" placeholder="••••••••" required />
+      
+        <div class="options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="{{ url_for('forgotPassword') }}">Forgot Password?</a>
+        </div>
+      
+        <button type="submit" class="login-btn" id="login-btn">Login</button>
+      </form>      
+
+      <p class="register-text">Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+    </div>
+  </div>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          {% for category, message in messages %}
+            Swal.fire({
+              icon: '{{ "success" if category == "success" else "error" }}',
+              title: '{{ message.split(".")[0] }}',  // Taking title from first sentence
+              text: '{{ message }}',
+              confirmButtonText: 'OK'
+            });
+          {% endfor %}
+        });
+      </script>
+    {% endif %}
+  {% endwith %}
+
+</body>
+</html>

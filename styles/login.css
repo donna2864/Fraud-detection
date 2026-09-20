@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Lora', sans-serif;
+    background-color: #fef7f3;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .image-section {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-section img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  
+  .login-form {
+    flex: 0.5;
+    max-width: 400px;
+    background: #fff;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"] {
+    width: 380px;
+    padding: 10px;
+    font-family: 'Lora';
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #f39696;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Lora';
+    font-weight: 600;
+    font-size: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  .register-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .flash.success {
+    background-color: #e0ffe0; /* light green */
+    color: #006400; /* dark green text */
+  }
+  
+  .flash.error {
+    background-color: #ffe0e0; /* light red */
+    color: #d8000c; /* dark red text */
+  }
+  
+  

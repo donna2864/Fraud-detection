@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Lora', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px;
+  }
+
+  .success {
+    background-color: #d4f5df;
+  }
+
+  .fraud {
+    background-color: #f6b5b5;
+  }
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .icon {
+    width: 140px;
+    margin-bottom: 30px;
+  }
+
+  .exit-button {
+    padding: 12px 28px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-style: 'Lora';
+    font-weight: bold;
+    transition: 0.2s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .exit-button:hover {
+    transform: scale(1.05);
+  }
+
+  .success-button {
+    background-color: #f2b6b6;
+    color: black;
+  }
+
+  .fraud-button {
+    background-color: #c9f3c9;
+    color: black;
+  }
+
+  a {
+    text-decoration: none;
+  }

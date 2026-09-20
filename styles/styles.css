@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: #f9f1eb;
+    color: #222;
+  }
+  .logo{
+    font-weight: 700;
+  }
+
+  header {
+    background: #a8514c;
+    color: #fff;
+    padding: 1rem 0;
+  }
+  
+  .container {
+    width: 95%;
+    max-width: 1400px;
+    margin: auto;
+  }
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-bar nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+  }
+  
+  .hero {
+    padding: 3rem 0;
+  }
+  
+  .hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Lora';
+    font-size: 60px;
+  }
+
+  .hero-content p{
+    font-size: 20px;
+  }
+
+  .site-contain{
+    max-width: 800px;
+  }
+
+  .img-contain{
+    align-items: center;
+  }
+
+  .hero-content img {
+    width: 450px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+  }
+  
+  .about, .impact {
+    padding: 2rem 0;
+  }
+
+  .about h2{
+    font-family: 'Lora';
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .about h4{
+    font-family: 'Lora';
+    font-size: 30px;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .about p{
+    padding-bottom: 0.3rem;
+    font-size: 18px;
+  }
+  
+  .about ul, .impact ul {
+    margin-left: 1rem;
+    list-style: disc;
+    padding-bottom: 0.3rem;
+  }
+
+  .about li{
+    padding-top: 0.2rem;
+    font-size: 18px;
+  }
+
+  .about strong{
+    font-family: 'Lora';
+    font-weight:bolder;
+    font-size: 20px;
+  }
+  
+  .team {
+    padding: 2rem 0;
+  }
+  
+  .team h2{
+    font-family: 'Lora';
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+
+  .team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .member {
+    text-align: center;
+    width: 200px;
+    margin-bottom: 1rem;
+  }
+  
+  .photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 0.5rem;
+    border-radius: 50%;
+  }
+  .impact h2{
+    font-family: 'Lora';
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .impact h4{
+    font-family: 'Lora';
+    font-size: 30px;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .impact p{
+    padding-bottom: 0.3rem;
+    font-size: 18px;
+  }
+
+  .impact li{
+    padding-top: 0.2rem;
+    font-size: 18px;
+  }
+
+  .impact strong{
+    font-family: 'Lora';
+    font-weight:bolder;
+    font-size: 20px;
+  }
+
+  footer {
+    background: #e58d88;
+    padding: 2rem 0;
+    color: #000;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-content .links ul {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+  
+  .footer-content .links ul li {
+    margin-bottom: 0.4rem;
+  }
+  .footer-content a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .terms {
+    text-align: center;
+    padding: 0.5rem 2rem;
+    font-size: 0.85rem;
+  }
+  

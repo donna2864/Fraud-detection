@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Fraud Detection Project - {{ category }}</title>
+  <link rel="stylesheet" href="{{ url_for('serve_styles', filename='ShoppingPage.css') }}"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Team -8</div>
+    <div class="nav-right">
+        <div class="cart-icon" onclick="window.location.href='/cart'"><img src="{{ url_for('serve_images', filename='cart.png') }}" class="cart-img"></div>
+        <div class="user-info">
+          <span>{{ user_name }}</span>
+          <a href="{{ url_for('home') }}" class="user-icon-link">
+            <img src="{{ url_for('serve_images', filename='user.png') }}" alt="user icon" class="user-icon" />
+          </a>        
+        </div>
+    </div>
+  </header>
+
+  <!-- Page Title -->
+  <h1 class="page-title">{{ category }}</h1>
+
+  <!-- Category Tabs -->
+  <div class="tabs">
+    {% for cat in ["Health & Beauty", "Electronics", "Home & Garden", "Clothing", "Toys & Games"] %}
+      <button class="{{ 'active' if cat == category else '' }}">
+        <a href="{{ url_for('show_products', category=cat) }}">{{ cat }}</a>
+      </button>
+    {% endfor %}
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    {% for product in products %}
+      <div class="product-card">
+        <a href="{{ url_for('product_detail', product_id=product._id) }}">
+          <div class="product-top">
+            <span class="product-name">{{ product.name }}</span>
+            <span class="heart">♡</span>
+          </div>
+          <img src="{{ url_for('serve_images', filename=product.image) }}" class="product-img" alt="{{ product.name }}" />
+          <div class="product-bottom">
+            <p class="price">${{ '%.2f' | format(product.price) }}</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            Swal.fire({
+              title: '{{ "VPN Alert" if category == "vpn" else "Notice" }}',
+              text: "{{ message }}",
+              icon: '{{ "info" if category == "vpn" else "success" }}',
+              confirmButtonText: 'OK'
+            });
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    });
+  </script>
+</body>
+</html>

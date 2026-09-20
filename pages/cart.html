@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Fraud Detection Project - {{ category }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('serve_styles', filename='cart.css') }}"/>
+</head>
+
+<script>
+  function toggleCardInputs() {
+    const selected = document.querySelector('input[name="payment_method"]:checked').value;
+    const cardDetails = document.getElementById('card-details');
+
+    if (selected === "Debit Card" || selected === "Credit Card") {
+      cardDetails.style.display = "block";
+    } else {
+      cardDetails.style.display = "none";
+    }
+  }
+
+  // Initialize hidden on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('card-details').style.display = "none";
+  });
+</script>
+
+<body>
+  <header class="navbar">
+    <div class="logo">Team -8</div>
+    <div class="nav-right">
+      <div class="cart-icon" onclick="window.location.href='/cart'">
+        <img src="{{ url_for('serve_images', filename='cart.png') }}" class="cart-img">
+      </div>
+      <div class="user-info">
+        <span>{{ user_name }}</span>
+        <a href="{{ url_for('home') }}" class="user-icon-link">
+          <img src="{{ url_for('serve_images', filename='user.png') }}" alt="user icon" class="user-icon" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="cart-section">
+      <h2>Shopping Cart</h2>
+      {% if cart_items %}
+        {% for item in cart_items %}
+        <div class="cart-item">
+          <img src="../images/{{ item['image'] }}" alt="{{ item['name'] }}">
+          <div class="item-details">
+            <h3>{{ item['name'] }}</h3>
+            <p>{{ item['category'] }}</p>
+          </div>
+          <form action="{{ url_for('update_cart_item', item_id=item['_id']) }}" method="POST">
+            <div class="quantity-controls">
+              <button type="submit" name="quantity" value="{{ item['quantity'] - 1 }}">▲</button>
+              <span>{{ item['quantity'] }}</span>
+              <button type="submit" name="quantity" value="{{ item['quantity'] + 1 }}">▼</button>
+            </div>
+          </form>
+          <div>${{ item['price'] * item['quantity'] }}</div>
+          <a href="{{ url_for('remove_from_cart', item_id=item['_id']) }}">
+            <button><i class="fa-solid fa-trash"></i></button>
+          </a>
+        </div>
+        {% endfor %}
+      {% else %}
+        <p>Your cart is empty.</p>
+      {% endif %}
+    </div>
+
+    <div class="payment-section">
+      <h2>Card Details</h2>
+
+      <form id="checkout-form" action="/checkout" method="POST">
+        <div class="card-options">
+          <label>
+            <input type="radio" name="payment_method" value="debit card" required onchange="toggleCardInputs()">
+            Debit Card
+          </label>
+          <label>
+            <input type="radio" name="payment_method" value="credit card" onchange="toggleCardInputs()">
+            Credit Card
+          </label>
+          <label>
+            <input type="radio" name="payment_method" value="PayPal" onchange="toggleCardInputs()">
+            PayPal
+          </label>
+          <label>
+            <input type="radio" name="payment_method" value="bank transfer" onchange="toggleCardInputs()">
+            Bank Transfer
+          </label>
+        </div>        
+        
+        <!-- Wrap input groups for easier toggling -->
+        <div id="card-details">
+          <div class="input-group">
+            <input type="text" name="name_on_card" placeholder="Name on card">
+          </div>
+          <div class="input-group">
+            <input type="text" name="card_number" placeholder="1111 2222 3333 4444">
+          </div>
+          <div class="input-group" style="display: flex; gap: 10px; width: 99%;">
+            <input type="text" name="expiry" placeholder="mm/yy">
+            <input type="text" name="cvv" placeholder="123">
+          </div>
+        </div>    
+
+        <div class="summary">
+          <p>Subtotal: ${{ total }}</p>
+          <p>Shipping: $4</p>
+          <strong>Total (Tax incl.): ${{ total + 4 }}</strong>
+        </div>
+
+        <button class="checkout-btn" type="submit">${{ total + 4 }} Checkout</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function selectCard(img) {
+      // Unselect all
+      document.querySelectorAll('.card-icon').forEach(icon => {
+        icon.style.border = 'none';
+        icon.previousElementSibling.checked = false;
+      });
+
+      // Select the clicked one
+      img.style.border = '2px solid #eb9588';
+      img.previousElementSibling.checked = true;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Checkout Result</title>
+  <link rel="stylesheet" href="{{ url_for('serve_styles', filename='checkout_result.css') }}"/>
+</head>
+
+<body>
+  {% if is_fraud %}
+    <div class="container fraud">
+      <h2>Fraudulent Transaction Detected,<br>Payment is Blocked</h2>
+      <img src="{{ url_for('serve_images', filename='Fraudulent.png') }}" alt="Fraud Icon" class="icon">
+      <p>This transaction seems suspicious ({{ prob }}% chance of fraud).</p>
+      <a href="{{ url_for('home') }}">
+        <button class="exit-button fraud-button">Exit App</button>
+      </a>
+    </div>
+  {% else %}
+    <div class="container success">
+      <h2>Your Payment is Successful,<br>Thanks for Shopping</h2>
+      <img src="{{ url_for('serve_images', filename='Successful.png') }}" alt="Success Icon" class="icon">
+      <p>Thank you for your purchase! Fraud Probability: {{ prob }}%</p>
+      <a href="{{ url_for('home') }}">
+        <button class="exit-button success-button">Exit App</button>
+      </a>
+    </div>
+  {% endif %}
+</body>
+</html>

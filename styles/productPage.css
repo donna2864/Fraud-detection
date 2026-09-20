@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Lora', sans-serif;
+    background: #fdf6f2;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ba5a5a;
+    padding: 1rem 2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .cart-icon {
+    display: flex;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .cart-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .user-info .username {
+    font-size: 16px;
+  }
+  
+  .user-icon-link {
+    display: inline-block; /* Makes the <a> tag behave like an inline element */
+    vertical-align: middle; /* Ensures the link aligns with the rest of the elements */
+  }
+  
+  .user-info img {
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto; /* Optional: centers the image within its container */
+  }
+  
+  .product-container {
+    display: flex;
+    padding: 30px;
+    margin: 2rem;
+    max-width: 1920px;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .product-image img {
+    width: 500px;
+    border: 1px solid #cccccc00;
+    border-radius: 8px;
+  }
+
+  .product-details {
+    max-width: 500px;
+    margin-left:5rem;
+  }
+
+  .product-details h2 {
+    font-size: 38px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .product-details p{
+    font-size: 20px;
+  }
+  .category-tag {
+    background-color: #edc3b8;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .quantity-price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quantity-controls button {
+    padding: 6px 12px;
+    font-size: 18px;
+    border: 1px solid #333;
+    background: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .quantity-controls .price{
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    font-size: 25px;
+  }
+
+  .quantity-controls .quantity-btn{
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .quantity-controls .action-buttons{
+    display: block;
+    width: 120%;
+    padding: 16px;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: #e39e9e;
+    cursor: pointer;
+    font-family: 'Lora';
+  }

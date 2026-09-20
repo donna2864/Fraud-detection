@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Fraud Detection Project</title>
+  <link rel="stylesheet" href="../styles/performance.css"/>
+</head>
+<body>
+    <header>
+      <div class="container nav-bar">
+        <div class="logo">Fraud Detection</div>
+        <nav>
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('login') }}">App View</a>
+          <a href="{{ url_for('performance') }}">Model Details</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <h1>Performance Analysis</h1>
+      <p> Below is the comparitive analysis of the models trained on the fraud detection dataset</p>
+        <div class="section">
+          <div class="model-card">
+            <h2>Logistic Regression</h2>
+            <h4>Accuracy : 86%</h4>
+            <h3>Performace Metrics</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0.86</td>
+                <td>0.86</td>
+                <td>0.86</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0.86</td>
+                <td>0.85</td>
+                <td>0.85</td>
+              </tr>
+            </table>
+          </div>
+          <div class="model-card">
+            <h2>Random Forest</h2>
+            <h4>Accuracy : 97%</h4>
+            <h3>Performace Metrics</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0.97</td>
+                <td>0.97</td>
+                <td>0.97</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0.97</td>
+                <td>0.97</td>
+                <td>0.97</td>
+              </tr>
+            </table>
+          </div>
+          <div class="model-card">
+            <h2>XG Boost</h2>
+            <h4>Accuracy : 97%</h4>
+            <h3>Performace Metrics</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0.97</td>
+                <td>0.98</td>
+                <td>0.97</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0.98</td>
+                <td>0.96</td>
+                <td>0.97</td>
+              </tr>
+            </table>
+          </div>
+          <div class="model-card">
+            <h2>Ensemble Model</h2>
+            <h4>Accuracy : 97.15%</h4>
+            <h3>Performace Metrics</h3>
+            <table>
+              <tr>
+                <th></th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1-Score</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0.976</td>
+                <td>0.965</td>
+                <td>0.971</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0.976</td>
+                <td>0.965</td>
+                <td>0.971</td>
+              </tr>
+            </table>
+          </div>
+          <p> Best Model chosen for Live Demo: <strong>Ensemble Model</strong>, this model learns the best weights from the other ML models</p>
+        </div>
+
+        <div class="key-findings">
+        <h2>Key Findings</h2>
+        <p>This section gives a visual representation of the data that was used for model training, and how each of the feature contributs to the predicted</p>
+        <div class="section">
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart1.jpeg') }}" alt="chart1">
+            <h4>Chart: Different Payment Methods</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart3.jpeg') }}" alt="Combo Chart">
+            <h4>Chart: Product Category Breakdown</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart4.jpeg') }}" alt="Pie Chart">
+            <h4>Chart: Fraud vs Non-Fraud Transaction Distribution</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart2.jpeg') }}" alt="Line Chart">
+            <h4>Chart: Top Customer Locations by Transactions</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart5.jpeg') }}" alt="Line Chart">
+            <h4>Chart: Fraudulent Transactions by Device Type</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart6.jpeg') }}" alt="Combo Chart">
+            <h4>Chart: Customer Age vs Transaction Amount</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart7.jpeg') }}" alt="Pie Chart">
+            <h4>Chart: Fraud Rate Across Age Groups</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart8.jpeg') }}" alt="Line Chart">
+            <h4>Chart: Fraud Trends by Hour</h4>
+          </div>
+          <div class="chart-card">
+            <img src="{{ url_for('serve_images', filename='chart9.png') }}" alt="Line Chart">
+            <h4>Chart: Feature Importance</h4>
+          </div>
+        </div>
+        <h2>Insights Sumary:</h2>
+        <div class="section">
+          <div class="info-card">
+            <h3>Payment Methods:</h3>
+            <ul>
+              <li>All four payment methods (Debit Card, Credit Card, PayPal, Bank Transfer) are used almost equally (~25% each).</li>
+              <li>Debit Card is the most used (25.2%), while Bank Transfer is the least (24.8%), but differences are minimal.</li>
+              <li>Customers show flexibility in payment method choice.</li>
+              <li>The business should maintain stable, secure support for all payment options without prioritization.</li>
+            </ul>
+          </div> 
+          <div class="info-card">
+            <h3>Customer Locations:</h3>
+            <ul>
+              <li>North Michael leads in transaction volume, followed by East Michael and West Christopher.</li>
+              <li>"Michael" locations dominate, suggesting geographic concentration.</li>
+              <li>Beyond the top three, transaction volumes are relatively balanced across other locations.</li>
+            </ul>
+          </div> 
+          <div class="info-card">
+            <h3>Product Categories:</h3>
+            <ul>
+              <li>Distribution among top categories (Home & Garden, Health & Beauty, Electronics, Toys & Games, Clothing) is very balanced (~20% each).</li>
+              <li>Home & Garden leads slightly (~20.3%); Health & Beauty is slightly lower (~19.8%).</li>
+              <li>Customer interests are diverse across multiple categories.</li>
+            </ul>
+          </div>  
+          <div class="info-card">
+            <h3>Fraudulent vs. Non-Fraudulent Transactions:</h3>
+            <ul>
+              <li>Fraudulent transactions make up about 5.17%; non-fraudulent transactions dominate (94.8%).</li>
+              <li>While fraud is relatively rare, it remains significant enough to require continuous monitoring.</li>
+            </ul>
+          </div>  
+          <div class="info-card">
+            <h3>Device Usage and Fraud:</h3>
+            <ul>
+              <li>Mobile devices experience the highest number of fraudulent transactions.</li>
+              <li>Desktops and tablets follow closely behind.</li>
+              <li>Emphasis on mobile security is critical.</li>
+            </ul>
+          </div> 
+          <div class="info-card">
+            <h3>Age and Transaction Behavior:</h3>
+            <ul>
+              <li>Most transactions come from customers aged 20-50.</li>
+              <li>Transaction amounts are generally low to moderate across all ages, with occasional high-value outliers. </li>
+              <li>Fraud rate spikes drastically among customers aged 70+ (~0.48), highlighting their vulnerability.</li>
+            </ul>
+          </div> 
+          <div class="info-card">
+            <h3>Time of Day and Fraud:</h3>
+            <ul>
+              <li>Fraudulent transactions are fairly consistent throughout the day.</li>
+              <li>Slight increase in fraud during early hours (0–5 AM) and late evening (7–9 PM).</li>
+              <li>Noticeable dip in fraud mid-morning (10–11 AM).</li>
+              <li>Fraud is not heavily time-dependent, requiring all-day vigilance.</li>
+            </ul>
+          </div>        
+        </div>
+        </div>
+    </div>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3>Team - 8: Fraud Detection</h3>
+        <p>Our vision is to provide convenience and help increase your sales business.</p>
+      </div>
+      <div class="links">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><a href=#about>About</a></li>
+          <li><a href="#">Live Demo</a></li>
+          <li><a href="#">Model Performace</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="terms">CopyRight 2025 &copy; Terms & Condition</div>
+  </footer>
+</body>
+</html>

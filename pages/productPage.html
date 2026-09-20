@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Fraud Detection Project - {{ product.name }}</title>
+  <link rel="stylesheet" href="{{ url_for('serve_styles', filename='productPage.css') }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Team -8</div>
+    <div class="nav-right">
+      <div class="cart-icon" onclick="window.location.href='/cart'"><img src="{{ url_for('serve_images', filename='cart.png') }}" class="cart-img"></div>
+      <div class="user-info">
+        <span>{{ user_name }}</span>
+        <a href="{{ url_for('home') }}" class="user-icon-link">
+          <img src="{{ url_for('serve_images', filename='user.png') }}" alt="user icon" class="user-icon" />
+        </a>        
+      </div>
+    </div>
+  </header>
+
+  <div class="product-container">
+    <div class="product-image">
+      <img src="{{ url_for('serve_images', filename=product.image) }}" alt="{{ product.name }}">
+    </div>
+
+    <div class="product-details">
+      <h2>{{ product.name }}</h2>
+      <div class="category-tag"><i class="fa-solid fa-tag"></i> {{ product.category }}</div>
+      <p class="description">{{ product.description }}</p>
+      <div class="quantity-price">
+        <div class="quantity-controls">
+          <form action="{{ url_for('add_to_cart', product_id=product._id) }}" method="POST">
+            <button  type="button" onclick="updateQuantity(-1)">－</button>
+            <span class="quantity-btn" id="quantity">1</span>
+            <button type="button" onclick="updateQuantity(1)">＋</button>
+            <input type="hidden" id="quantity_input" name="quantity" value="1" />
+            <div class="price">$ {{ '%.2f' | format(product.price) }}</div>
+            <button class="action-buttons" type="submit">Add To Cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateQuantity(change) {
+      let quantityElement = document.getElementById("quantity");
+      let quantityInput = document.getElementById("quantity_input");
+      let quantity = parseInt(quantityElement.textContent);
+
+      if (quantity + change > 0) {
+        quantity += change;
+        quantityElement.textContent = quantity;
+        quantityInput.value = quantity;
+      }
+    }
+  </script>
+</body>
+</html>

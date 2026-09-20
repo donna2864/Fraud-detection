@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Fraud Detection Project</title>
+  <link rel="stylesheet" href="{{ url_for('serve_styles', filename='styles.css') }}" />
+</head>
+<body>
+
+  <header>
+    <div class="container nav-bar">
+      <div class="logo">Fraud Detection</div>
+      <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">App View</a>
+        <a href="{{ url_for('performance') }}">Model Details</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="site-contain">
+        <h1>Fraud Detection In Online Transactions</h1>
+        <p>Safeguarding Transactions, Empowering Trust— <br>Building a Secure Digital Marketplace</p>
+      </div>
+      <div class="img-contain">
+        <img src="{{ url_for('serve_images', filename='cracking.png') }}" alt="Fraud illustration">
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about container">
+    <h2>About Project</h2>
+    <h4>Who We Are</h4>
+    <p>With the rapid growth of e-commerce, online transactions are increasingly vulnerable to fraud. We are committed to building solutions to combat these challenges.</p>
+    <h4>Our Solution</h4>
+    <p>We leverage Machine Learning to develop an adaptive fraud detection model that accurately classifies transactions as legitimate or fraudulent. Unlike traditional rule-based methods, our approach continuously learns from historical data to enhance fraud detection capabilities.</p>
+    <h4>What We Do</h4>
+    <ul>
+      <li><strong>Analyze Transaction Patterns:</strong> Detecting anomalies through dynamic pattern recognition.</li>
+      <li><strong>Real-Time Prevention:</strong> Integrated into a user-friendly web app.</li>
+      <li><strong>Continuous Improvement:</strong> Refining the model through ML algorithm analysis.</li>
+    </ul>
+    <h4>Our Mission</h4>
+    <p>To provide a robust, efficient, and transparent fraud detection system that safeguards online transactions and builds a secure, trustworthy digital marketplace.</p>
+  </section>
+
+  <section class="team container">
+    <h2>Team Members</h2>
+    <div class="team-members">
+      <div class="member">
+        <div><img class="photo" src="{{ url_for('serve_images', filename='donna.png') }}"/></div>
+        <p><strong>Donna R</strong><br>1RVU22BSC029</p>
+      </div>
+      <div class="member">
+        <div><img class="photo" src="{{ url_for('serve_images', filename='dhanya.png') }}"/></div>
+        <p><strong>Dhanya Nagaraj</strong><br>1RVU22BSC026</p>
+      </div>
+      <div class="member">
+        <div><img class="photo" src="{{ url_for('serve_images', filename='hanshal.jpg') }}"/></div>
+        <p><strong>Hanshal Kashyap</strong><br>1RVU22COM026</p>
+      </div>
+      <div class="member">
+        <div><img class="photo" src="{{ url_for('serve_images', filename='harsha.jpg') }}"/></div>
+        <p><strong>Harshavardhana Reddy</strong><br>1RVU22COM027</p>
+      </div>
+      <div class="member">
+        <div><img class="photo" src="{{ url_for('serve_images', filename='shruti.jpg') }}"/></div>
+        <p><strong>Shruti Vadlamani</strong><br>1RVU22BDE096</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact container">
+    <h2>Approach and Impact</h2>
+    <h4>Overview</h4>
+    <p>Our project leverages ML to classify transactions, improving e-commerce safety.</p>
+    <h4>Why Our Solution Stands Out</h4>
+    <ul>
+      <li><strong>Adaptive Learning:</strong> Dynamically recognizes fraud using data.</li>
+      <li><strong>Comparative Analysis:</strong> Tests multiple ML algorithms.</li>
+      <li><strong>User-Friendly Deployment:</strong> Seamless real-time prevention.</li>
+    </ul>
+    <h4>Key Benefits</h4>
+    <ul>
+      <li><strong>Improved Accuracy</strong> — Enhances precision, reduces losses.</li>
+      <li><strong>Business Reliability</strong> — Builds trust between platforms & users.</li>
+      <li><strong>Real-World Integration</strong> — Ready for deployment.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3>Team - 8: Fraud Detection</h3>
+        <p>Our vision is to provide convenience and help increase your sales business.</p>
+      </div>
+      <div class="links">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="{{ url_for('login') }}">Live Demo</a></li>
+          <li><a href="{{ url_for('performance') }}">Model Performance</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="terms">CopyRight 2025 &copy; Terms & Condition</div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('serve_images', filename='fraud-detection (1).png') }}">
+  <title>Fraud Detection Project</title>
+  <link rel="stylesheet" href="{{ url_for('serve_styles', filename='login.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="image-section">
+      <img className="signup" src="{{ url_for('serve_images', filename='signup.png') }}" alt="Signup Illustration" />
+    </div>
+    <div class="login-form">
+      <h2>Signup</h2>
+
+      <form method="POST" action="{{ url_for('register') }}">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Your Full Name" required />
+      
+        <label>Email</label>
+        <input type="email" name="email" placeholder="example@gmail.com" required />
+      
+        <label>Password</label>
+        <input type="password" name="password" placeholder="••••••••" required />
+      
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" placeholder="••••••••" required />
+
+        <label>Age</label>
+        <input type="number" name="age" placeholder="Your age" required />
+
+        <label>Device</label>
+        <input type="text" name="device" placeholder="desktop / mobile / tablet" required/>
+
+        <label>Account Age days</label>
+        <input type="number" name="account_age_days" placeholder="Your account age" required/>
+      
+        <button type="submit" class="login-btn">Signup</button>
+      </form>      
+
+      <p class="register-text">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+  </div>
+  <script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          Swal.fire({
+            icon: "{{ 'success' if category == 'success' else 'error' if category == 'error' else 'warning' }}",
+            title: "{{ category.capitalize() }}",
+            html: "{{ message | replace('\n', '<br>') }}",  // Supports newlines
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK"
+          });
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </script>
+</body>
+</html>
